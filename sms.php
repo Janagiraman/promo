@@ -8,11 +8,11 @@ include('connect.php');
  $sql = "SELECT * FROM offer_sms where mobile = '".$mobile."'";
  $result = mysqli_query($conn, $sql);
  
-//  if (mysqli_num_rows($result) > 0) {
-//       $_SESSION['user'] = 'exist';
-//       header("Location: index.php");
-//       die();
-//  }
+ if (mysqli_num_rows($result) > 0) {
+      $_SESSION['user'] = 'exist';
+      header("Location: index.php");
+      die();
+ }
 
  
  $coupon = mt_rand(100000, 999999);
