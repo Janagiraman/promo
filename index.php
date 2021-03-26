@@ -119,7 +119,8 @@
                 grecaptcha.execute('6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu', {action:'validate_captcha'})
                         .then(function(token) {
                         document.getElementById('g-recaptcha-response').value = token;
-                        document.getElementById("re_captcha_remove").remove();
+                        var element = document.getElementById("re_captcha_remove");
+                        document.remove(element);
 
                 });
             }
