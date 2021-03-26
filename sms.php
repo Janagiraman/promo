@@ -36,6 +36,8 @@ include('connect.php');
  $sender = "sahasr"; // This is who the message appears to be from.
 //  $message = "Test";
 //  $message = "Dear $name, Please use this code $coupon before $expiry_date.";
+//  $message = "Dear $name, Please use this code $coupon before $expiry_date.
+//  Regards Pizzeria Locale";
  $message = "Dear $name, Please use this code $coupon before $expiry_date.
  Regards Pizzeria Locale";
 
