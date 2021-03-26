@@ -77,7 +77,7 @@
                             <input class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha">
                             <div class="help-block with-errors"></div>
                         </div>
-                        <button type="submit" class="btn btn-success" id="send-sms"> Send Message</button>
+                        <button type="submit" class="btn btn-success" name="send-sms" id="send-sms"> Send Message</button>
                     </div>
                 </form>
                 <?php  }   if(isset($_SESSION['user']) == 'exist'){ 
