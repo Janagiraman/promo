@@ -57,7 +57,7 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="name">Name <span class="txt-danger">*</span></label>
-                                    <input id="name" type="text" name="name" class="form-control" placeholder="Please enter your Name" required>
+                                    <input id="name" type="text" name="name" class="form-control" placeholder="Please enter your Name" >
                                     
                                 </div>
                             </div>
@@ -67,24 +67,22 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="phone">Phone <span class="txt-danger">*</span></label>
-                                    <input id="phone" type="number" name="phone" class="form-control" placeholder="Please enter your phone" required>
+                                    <input id="phone" type="number" name="phone" class="form-control" placeholder="Please enter your phone" >
                                    
                                 </div>
                             </div>
                         </div>
                       
                         <div class="form-group">
-                            <!-- <div class="g-recaptcha" data-sitekey="6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu"></div>
-                            <span id="captcha_error" class="text-danger"></span> -->
                             <div class="g-recaptcha" data-sitekey="6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
-                            <!-- <input class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha"> -->
+                            <input class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha"> -->
                             <div class="help-block with-errors"></div>
                         </div>
                         <button type="submit" class="btn btn-success" name="send-sms" id="send-sms"> Send Message</button>
                     </div>
                 </form>
                 <?php  }   if(isset($_SESSION['user']) == 'exist'){ 
-                     $_SESSION['user'] = '';
+                               $_SESSION['user'] = '';
                     ?>
                             <div class="alert alert-danger" role="alert">
                                 Opps This number is already used for the promo.
