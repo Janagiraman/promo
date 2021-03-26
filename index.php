@@ -51,36 +51,36 @@
                     </a>
                 </div>
                 <?php if(isset($_SESSION['insert']) != 'success'){ ?>
-                <form id="promo-form" name="promo-form" method="post" action="sms.php">
-                    
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label for="name">Name <span class="txt-danger">*</span></label>
-                                    <input id="name" type="text" name="name" class="form-control" placeholder="Please enter your Name" >
-                                    
+                        <form id="promo-form" name="promo-form" method="post" action="sms.php">
+                            
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="name">Name <span class="txt-danger">*</span></label>
+                                            <input id="name" type="text" name="name" class="form-control" placeholder="Please enter your Name" >
+                                            
+                                        </div>
+                                    </div>
+                                
                                 </div>
-                            </div>
-                           
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label for="phone">Phone <span class="txt-danger">*</span></label>
-                                    <input id="phone" type="number" name="phone" class="form-control" placeholder="Please enter your phone" >
-                                   
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="phone">Phone <span class="txt-danger">*</span></label>
+                                            <input id="phone" type="number" name="phone" class="form-control" placeholder="Please enter your phone" >
+                                        
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                      
-                        <div class="form-group">
-                            <div class="g-recaptcha" data-sitekey="6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
-                            <input class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha"> 
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <button type="submit" class="btn btn-success" name="send-sms" id="send-sms"> Send Message</button>
-                   
-                </form>
+                            
+                                <div class="form-group">
+                                    <div class="g-recaptcha" data-sitekey="6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
+                                    <input class="form-control" data-recaptcha="true" required data-error="Please complete the Captcha"> 
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <button type="submit" class="btn btn-success" name="send-sms" id="send-sms"> Send Message</button>
+                        
+                        </form>
                 <?php  }   if(isset($_SESSION['user']) == 'exist'){ 
                                $_SESSION['user'] = '';
                     ?>
@@ -113,13 +113,6 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
    
   <script>
-        // $(document).ready(function(){
-        //        $("#send-sms").click(function(){
-        //              var captcha = $("#recaptcha-accessible-status").text();
-        //              alert(captcha);
-        //        })
-        // });
-
         
         function verifyRecaptchaCallback(){
                 grecaptcha.execute('6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu', {action:'validate_captcha'})
