@@ -52,7 +52,7 @@
                 </div>
                 <?php if(isset($_SESSION['insert']) != 'success'){ ?>
                 <form id="promo-form" name="promo-form" method="post" action="sms.php">
-                    <div class="controls">
+                    
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
@@ -79,7 +79,7 @@
                             <div class="help-block with-errors"></div>
                         </div>
                         <button type="submit" class="btn btn-success" name="send-sms" id="send-sms"> Send Message</button>
-                    </div>
+                   
                 </form>
                 <?php  }   if(isset($_SESSION['user']) == 'exist'){ 
                                $_SESSION['user'] = '';
