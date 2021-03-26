@@ -2,6 +2,18 @@
 if (!isset($_SESSION)) { session_start(); }
 include('connect.php');
 
+// if(!empty($_POST['g-recaptcha-response']))
+//   {
+//         $secret = 'GOOGLE_CAPTACH_SECRET_KEY';
+//         $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']);
+//         $responseData = json_decode($verifyResponse);
+//         if($responseData->success)
+//             $message = "g-recaptcha varified successfully";
+//         else
+//             $message = "Some error in vrifying g-recaptcha";
+//        echo $message;
+//    }
+
  $name = $_POST['name'];
  $mobile = $_POST['phone'];
 
@@ -23,7 +35,10 @@ include('connect.php');
  $test = "0";
  $sender = "sahasr"; // This is who the message appears to be from.
 //  $message = "Test";
- $message = "Dear $name, Please use this code $coupon before $expiry_date.";
+//  $message = "Dear $name, Please use this code $coupon before $expiry_date.";
+ $message = "Dear $name, Please use this code $coupon before $expiry_date.
+ Regards Pizzeria Locale";
+
  $message = urlencode($message);
  $data = "username=".$username."&hash=".$hash."&message=".$message."&sender=".$sender."&numbers=".$mobile."&test=".$test;
  $ch = curl_init('http://api.textlocal.in/send/?');

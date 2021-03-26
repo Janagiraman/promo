@@ -53,8 +53,8 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="form_name">Name *</label>
-                                    <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your Name" required>
+                                    <label for="name">Name *</label>
+                                    <input id="name" type="text" name="name" class="form-control" placeholder="Please enter your Name" required>
                                     
                                 </div>
                             </div>
@@ -63,19 +63,21 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="form_phone">Phone</label>
-                                    <input id="form_phone" type="number" name="phone" class="form-control" placeholder="Please enter your phone" required>
+                                    <label for="phone">Phone</label>
+                                    <input id="phone" type="number" name="phone" class="form-control" placeholder="Please enter your phone" required>
                                    
                                 </div>
                             </div>
                         </div>
                       
                         <div class="form-group">
+                            <!-- <div class="g-recaptcha" data-sitekey="6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu"></div>
+                            <span id="captcha_error" class="text-danger"></span> -->
                             <div class="g-recaptcha" data-sitekey="6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
                             <input class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha">
                             <div class="help-block with-errors"></div>
                         </div>
-                        <input type="submit" class="btn btn-success" value="Send Message">
+                        <button type="submit" class="btn btn-success" id="send-sms"> Send Message</button>
                     </div>
                 </form>
                 <?php  }   if(isset($_SESSION['user']) == 'exist'){ 
@@ -108,16 +110,22 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script>
-
-    function verifyRecaptchaCallback(){
-        grecaptcha.execute('6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu', {action:'validate_captcha'})
-                  .then(function(token) {
-                  document.getElementById('g-recaptcha-response').value = token;
-        });
-    }
-
    
-  </script>
+  <script>
+        // $(document).ready(function(){
+        //        $("#send-sms").click(function(){
+        //              var captcha = $("#recaptcha-accessible-status").text();
+        //              alert(captcha);
+        //        })
+        // });
+
+        
+        function verifyRecaptchaCallback(){
+                grecaptcha.execute('6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu', {action:'validate_captcha'})
+                        .then(function(token) {
+                        document.getElementById('g-recaptcha-response').value = token;
+                });
+            }
+</script>
 </body>
 
