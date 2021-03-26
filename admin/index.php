@@ -67,11 +67,11 @@
                                             </div>
                                             <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
                                         </form>
-                                        <?php  if($_SESSION['user'] == 'invalid'){    ?>
+                                        <?php  if(isset($_SESSION['user']) == 'invalid'){    ?>
                                             <div class="alert alert-danger" role="alert">
                                                 Invalid Credentials
                                                 </div>
-                                        <?php $_SESSION['user'] = '';
+                                        <?php unset($_SESSION['user']);
                                     }   ?>
                                     
                                 </div>
