@@ -75,14 +75,14 @@
                             
                                 <div class="form-group"> 
                                     <div class="g-recaptcha" data-sitekey="6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
-                                    <input class="form-control" data-recaptcha="true" required data-error="Please complete the Captcha"> 
+                                    <input class="form-control d-none" data-recaptcha="true"  data-error="Please complete the Captcha"> 
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <button type="submit" class="btn btn-success" name="send-sms" id="send-sms"> Send Message</button>
                         
                         </form>
                 <?php  }   if(isset($_SESSION['user']) == 'exist'){ 
-                               $_SESSION['user'] = '';
+                              unset($_SESSION['user']);
                     ?>
                             <div class="alert alert-danger" role="alert">
                                 Opps This number is already used for the promo.
@@ -97,8 +97,7 @@
                                     </div>
                                 <?php
                                     $_SESSION['insert'] = '';
-                                    $_SESSION['coupon'] = '';
-                                    $_SESSION['expiry_date'] = '';
+                                    unset($_SESSION['insert']);
                             } ?>
           
 
