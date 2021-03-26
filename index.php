@@ -70,11 +70,11 @@
                             </div>
                         </div>
                       
-                        <!-- <div class="form-group">
+                        <div class="form-group">
                             <div class="g-recaptcha" data-sitekey="6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
                             <input class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha">
                             <div class="help-block with-errors"></div>
-                        </div> -->
+                        </div>
                         <input type="submit" class="btn btn-success" value="Send Message">
                     </div>
                 </form>
