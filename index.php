@@ -47,7 +47,7 @@
                       <img src="images/pizzeria-locale.png" />
                     </a>
                 </div>
-                <?php if($_SESSION['insert'] != 'success'){ ?>
+                <?php if(isset($_SESSION['insert']) != 'success'){ ?>
                 <form id="promo-form" name="promo-form" method="post" action="sms.php">
                     <div class="controls">
                         <div class="row">
@@ -78,7 +78,7 @@
                         <input type="submit" class="btn btn-success" value="Send Message">
                     </div>
                 </form>
-                <?php  }   if($_SESSION['user'] == 'exist'){ 
+                <?php  }   if(isset($_SESSION['user']) == 'exist'){ 
                      $_SESSION['user'] = '';
                     ?>
                             <div class="alert alert-danger" role="alert">
@@ -86,7 +86,7 @@
                             </div>
                 <?php  } ?> 
             </div>
-            <?php   if($_SESSION['insert'] == 'success'){ 
+            <?php   if(isset($_SESSION['insert']) == 'success'){ 
                                     
                                     ?>
                                     <div class="alert alert-success" role="alert">
