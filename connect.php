@@ -1,21 +1,15 @@
 <?php
 
-$dbhost = 'localhost:3306';
-$dbuser = 'root';
-$dbpass = 'root';
-$dbname = 'pizzeria_coupon';
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass,$dbname);
+//$dbhost = 'localhost:3306';
+$dbhost = 'hthc-db-do-user-2063523-0.a.db.ondigitalocean.com';
+$dbuser = 'doadmin';
+$dbpass = 'pcml4lebf3lc7n6w';
+$dbname = 'pizzeria_promo';
+$db_port        = '25060';
+$conn = mysqli_connect($dbhost, $dbuser, $dbpass,$dbname, $db_port);
    
 if(! $conn ) {
 die('Could not connect: ' . mysqli_error());
 }
-
-// $conn = mysqli_connect("localhost","root","root","pizzeria_coupon");
-
-// // Check connection
-// if (mysqli_connect_errno()) {
-//   echo "Failed to connect to MySQL: " . mysqli_connect_error();
-//   exit();
-// }
 
 ?>
