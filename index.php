@@ -1,4 +1,4 @@
-<html>
+
 <?php if (!isset($_SESSION)) { session_start(); } ?>
 <head>
     <title>Pizzeria Locale</title>
@@ -49,7 +49,7 @@
                     </a>
                 </div>
                 <?php if($_SESSION['insert'] != 'success'){ ?>
-                <form id="contact-form" method="post" action="sms.php" role="form">
+                <form id="contact-form" method="post" action="sms.php">
                     <div class="controls">
                         <div class="row">
                             <div class="col-lg-12">
@@ -115,8 +115,7 @@
     function verifyRecaptchaCallback(){
         grecaptcha.execute('6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu', {action:'validate_captcha'})
                   .then(function(token) {
-            // add token value to form
-            document.getElementById('g-recaptcha-response').value = token;
+                  document.getElementById('g-recaptcha-response').value = token;
         });
     }
 
@@ -124,4 +123,3 @@
   </script>
 </body>
 
-</html>
