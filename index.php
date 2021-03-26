@@ -30,6 +30,9 @@
     text-align: center;
     margin: auto;
 }
+.txt-danger{
+    color:red;
+}
 
 </style>
 </head>
@@ -53,8 +56,8 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="name">Name *</label>
-                                    <input id="name" type="text" name="name" class="form-control" placeholder="Please enter your Name">
+                                    <label for="name">Name <span class="txt-danger">*</span></label>
+                                    <input id="name" type="text" name="name" class="form-control" placeholder="Please enter your Name" required>
                                     
                                 </div>
                             </div>
@@ -63,8 +66,8 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="phone">Phone</label>
-                                    <input id="phone" type="number" name="phone" class="form-control" placeholder="Please enter your phone">
+                                    <label for="phone">Phone <span class="txt-danger">*</span></label>
+                                    <input id="phone" type="number" name="phone" class="form-control" placeholder="Please enter your phone" required>
                                    
                                 </div>
                             </div>
