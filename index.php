@@ -73,9 +73,11 @@
                                     </div>
                                 </div>
                             
-                                <div class="form-group"> 
+                                <div class="form-group">
+
                                     <div class="g-recaptcha" data-sitekey="6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
-                                    <input type="text" class="form-control " data-recaptcha="true" name="re_captcha" required  data-error="Please complete the Captcha"> 
+                                    <input type="text" class="form-control " data-recaptcha="true" name="re_captcha" id="re_captcha_remove" required  data-error="Please complete the Captcha"> 
+                                   
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <button type="submit" class="btn btn-success" name="send-sms" id="send-sms"> Send Message</button>
@@ -117,6 +119,8 @@
                 grecaptcha.execute('6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu', {action:'validate_captcha'})
                         .then(function(token) {
                         document.getElementById('g-recaptcha-response').value = token;
+                       $("#re_captcha_remove").remove();
+
                 });
             }
 </script>
