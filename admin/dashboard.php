@@ -79,6 +79,20 @@ a.logout {
 a.terms {
     margin-left: 24px;
 }
+.promo-list{
+    min-height:700px;
+}
+
+@media only screen and (max-width: 600px) {
+    a.logout {
+    color: white;
+    float: right;
+    margin-top: 24%;
+}
+
+}
+
+
             
     </style>
 </head>
@@ -87,23 +101,7 @@ a.terms {
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-
-        <!-- Sidebar -->
-        <!-- <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                
-                <div class="sidebar-brand-text mx-3">Pizzeria Locale <br> Admin </div>
-            </a>
-           <hr class="sidebar-divider my-0">
-            <li class="nav-item active">
-                <a class="nav-link" href="dashboard.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-        </ul> -->
-        <!-- End of Sidebar -->
-
-        <!-- Content Wrapper -->
+      <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
@@ -116,7 +114,7 @@ a.terms {
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                       <img class="logo" src="http://localhost/pizzeria_sms/images/pizzeria-locale.png" />
+                       <img class="logo" src="../images/pizzeria-locale.png" />
                          <a class="logout" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt "></i>
                                     Logout
@@ -131,9 +129,10 @@ a.terms {
 
                         <!-- Area Chart -->
                         <div class="col-xl-12 col-lg-7">
-                            <div class="card shadow mb-4">
+                            <div class="card shadow mb-4 promo-list">
                                 <!-- Card Header - Dropdown -->
-                                <table id="dtBasicExample" class="table  table-bordered table-sm" cellspacing="0" width="100%">
+                                <div class="table-responsive">
+                                <table id="dtBasicExample" class="table  table-bordered table-sm " cellspacing="0" width="100%">
                                     <thead>
                                       <tr>
                                         <th class="th-sm">S. No</th>
@@ -178,6 +177,7 @@ a.terms {
                                     </tbody>
                                     
                                   </table>
+                                  </div>
                             </div>
                         </div>
 
