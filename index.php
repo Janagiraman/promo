@@ -76,7 +76,7 @@
                                 <div class="form-group">
 
                                     <div class="g-recaptcha" data-sitekey="6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
-                                    <input type="text" class="form-control d-none " data-recaptcha="true" name="re_captcha" id="re_captcha_remove" required  data-error="Please complete the Captcha"> 
+                                    <input type="text" class="form-control d-none " data-recaptcha="true" name="re_captcha" id="re_captcha_remove"   data-error="Please complete the Captcha"> 
                                    
                                     <div class="help-block with-errors"></div>
                                 </div>
