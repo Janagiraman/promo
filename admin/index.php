@@ -53,7 +53,7 @@
                             <div class="col-lg-12">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <img src="http://localhost/pizzeria_admin/images/pizzeria-locale.png" />
+                                        <img src="../images/pizzeria-locale.png" />
                                         <h1 class="h4 text-gray-900 mb-4">Welcome To Pizzeria Locale!</h1>
                                     </div>
                                         <form class="user" name="login-form" method="POST" action="validation.php">
