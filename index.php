@@ -110,7 +110,18 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+
+    function verifyRecaptchaCallback(){
+        grecaptcha.execute('6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu', {action:'validate_captcha'})
+                  .then(function(token) {
+            // add token value to form
+            document.getElementById('g-recaptcha-response').value = token;
+        });
+    }
+
    
+  </script>
 </body>
 
 </html>
