@@ -154,7 +154,7 @@ a.terms {
                                     </thead>
                                     <tbody>
                                     <?php 
-                                     if($offers){
+                                     if(!empty($offers)){
                                          $i = 1;
                                          foreach($offers as $key => $value){
                                              ?>
