@@ -95,8 +95,11 @@ include('connect.php');
         curl_setopt_array($ch, $curlConfig);
         if($result = curl_exec($ch)){
             echo "lll";
-            curl_close($ch);exit;
+            echo '<pre>';
+            curl_close($ch);
             $response = json_decode($result);
+            print_r($response);
+            exit;
             return $response->success;
         }else{
             echo "dddtdtd";exit;
