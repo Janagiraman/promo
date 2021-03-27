@@ -11,6 +11,7 @@ include('connect.php');
       //your site secret key
       $secret = '6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu';
       //get verify response data
+      echo $_POST['g-recaptcha-response'];
       $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']);
       $responseData = json_decode($verifyResponse);
       echo '<pre>';
