@@ -2,11 +2,11 @@
 if (!isset($_SESSION)) { session_start(); }
 include('connect.php');
 
-echo '<pre>';
-print_r($_POST);
-exit; 
+// echo '<pre>';
+// print_r($_POST);
+// exit; 
   
-if(isset($_POST['submit']) && !empty($_POST['submit'])){
+
     if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){
       //your site secret key
       $secret = '6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu';
@@ -66,11 +66,6 @@ if(isset($_POST['submit']) && !empty($_POST['submit'])){
           die();
       }
     }
-  }else{
-    ///$errMsg = 'Please click on the reCAPTCHA box.';
-    $_SESSION['captcha_error'] = 'captcha_validate';
-    header("Location: index.php");
-    die();
   }
 
 
