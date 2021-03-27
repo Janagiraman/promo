@@ -26,7 +26,7 @@ include('connect.php');
                     $username =  'manoj.p@netiapps.com';
                     $hash =  'c036e85abe2efe9d3ccce6f9495dc320778f5d56370424f1bf602135d9efd4f8';
                     $test = "0";
-                    $sender = "sahasr"; // This is who the message appears to be from.
+                    $sender = "eecbuy"; // This is who the message appears to be from.
                     //$message = "Dear $name, Please use this code $coupon before $expiry_date.";
                     $message = "Dear $name, Please use this code $coupon before $expiry_date. Regards Pizzeria Locale";
                     
