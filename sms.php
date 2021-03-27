@@ -11,10 +11,14 @@ include('connect.php');
       //your site secret key
       $secret = '6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu';
       //get verify response data
+      echo '<pre>';
       echo $_POST['g-recaptcha-response'];
       $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']);
-      $responseData = json_decode($verifyResponse);
-      echo '<pre>';
+      $keyy = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret);
+     print_r($keyy);
+      print_R($verifyResponse);
+        $responseData = json_decode($verifyResponse);
+      
       print_r($responseData);
       if($responseData->success){
           echo 'succes';exit;
