@@ -5,7 +5,7 @@ include('connect.php');
 if(isset($_POST['g-recaptcha-response']) !=''){
 
     $url = 'https://www.google.com/recaptcha/api/siteverify';
-    $privatekey = "6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu";
+    $privatekey = "6LfCdIwaAAAAAFddNQMt-1CYcW9TYkjJHXP3QKpE";
     $response = file_get_contents($url."?secret=".$privatekey."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
     $data = json_decode($response);
     echo '<pre>';
