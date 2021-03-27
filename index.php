@@ -81,11 +81,13 @@
                                     <div class="g-recaptcha" data-sitekey="6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
                                     <input type="text" class="form-control d-none " data-recaptcha="true" name="re_captcha" id="re_captcha_remove" value="false"   data-error="Please complete the Captcha"> 
                                     <span class="error-lbl" id="captcha_error"></label>
-                                    <?php  if(isset($_SESSION['user']) == 'exist'){ ?>
+                                    <?php  if(isset($_SESSION['captcha_error']) == 'captcha_validate'){ ?>
                                         <div class="alert alert-danger captcha_error" role="alert">
                                             Invalid Captcha.
                                         </div>
-                                    <?php } ?>
+                                    <?php 
+                                       unset($_SESSION['captcha_error']);
+                                    } ?>
                                     <div class="help-block with-errors captcha_error"></div>
                                 </div>
                                
