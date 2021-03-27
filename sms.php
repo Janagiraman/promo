@@ -66,7 +66,7 @@ include('connect.php');
     }
 
 
- function capchaValidate($response){
+ function captchaValidate($response){
     $url = 'https://www.google.com/recaptcha/api/siteverify';
     $privatekey = "6LfCdIwaAAAAAFddNQMt-1CYcW9TYkjJHXP3QKpE";
     $response = file_get_contents($url."?secret=".$privatekey."&response=".$response."&remoteip=".$_SERVER['REMOTE_ADDR']);
