@@ -2,6 +2,25 @@
 if (!isset($_SESSION)) { session_start(); }
 include('connect.php');
 
+if(isset($_POST['g-recaptcha-response']) !=''){
+
+    $url = 'https://www.google.com/recaptcha/api/siteverify';
+    $privatekey = "6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu";
+    $response = file_get_contents($url."?secret=".$privatekey."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
+    $data = json_decode($response);
+    echo '<pre>';
+    print_r($data);
+    exit;
+
+    if (isset($data->success) AND $data->success==true) {
+                // everything is ok!
+    } else {
+                // spam
+    }
+
+}
+
+
 // echo '<pre>';
 // print_r($_POST);
 // exit; 

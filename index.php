@@ -82,7 +82,7 @@
                                             Invalid Captcha.
                                         </div>
                                     <?php } ?>
-                                    <div class="help-block with-errors"></div>
+                                    <div class="help-block with-errors captcha_error"></div>
                                 </div>
                                
                         
@@ -134,8 +134,7 @@
                 grecaptcha.execute('6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu', {action:'validate_captcha'})
                         .then(function(token) {
                         document.getElementById('g-recaptcha-response').value = token;
-                        var element = document.getElementById("re_captcha_remove");
-                        document.remove(element);
+                       
 
                 });
             }
