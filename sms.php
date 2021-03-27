@@ -94,10 +94,12 @@ include('connect.php');
         );
         curl_setopt_array($ch, $curlConfig);
         if($result = curl_exec($ch)){
-            curl_close($ch);
+            echo "lll";
+            curl_close($ch);exit;
             $response = json_decode($result);
             return $response->success;
         }else{
+            echo "dddtdtd";exit;
             var_dump(curl_error($ch)); // this for debug remove after you test it
             return false;
         }
