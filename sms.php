@@ -13,7 +13,10 @@ include('connect.php');
       //get verify response data
       $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']);
       $responseData = json_decode($verifyResponse);
+      echo '<pre>';
+      print_r($responseData);
       if($responseData->success){
+          echo 'succes';exit;
           //contact form submission code goes here
           $name = $_POST['name'];
           $mobile = $_POST['phone'];
@@ -60,18 +63,14 @@ include('connect.php');
   
         //  $succMsg = 'Your contact request have submitted successfully.';
       }else{
+          echo "comes else ";exit;
           //$errMsg = 'Robot verification failed, please try again.';
           $_SESSION['captcha_error'] = 'captcha_validate';
           header("Location: index.php");
           die();
       }
     }
-    else{
-        //$errMsg = 'Robot verification failed, please try again.';
-        $_SESSION['captcha_error'] = 'captcha_validate';
-        header("Location: index.php");
-        die();
-    }
+   
   
 
 
