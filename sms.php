@@ -61,12 +61,12 @@ if(isset($_POST['submit']) && !empty($_POST['submit'])){
           header("Location: index.php");
           die();
       }
-    }else{
-      ///$errMsg = 'Please click on the reCAPTCHA box.';
-      $_SESSION['captcha_error'] = 'captcha_validate';
-      header("Location: index.php");
-      die();
     }
+  }else{
+    ///$errMsg = 'Please click on the reCAPTCHA box.';
+    $_SESSION['captcha_error'] = 'captcha_validate';
+    header("Location: index.php");
+    die();
   }
 
 
