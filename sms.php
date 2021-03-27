@@ -4,7 +4,7 @@ include('connect.php');
 
 echo '<pre>';
 print_r($_POST);
-exit;
+exit; 
  
 if(isset($_POST['submit']) && !empty($_POST['submit'])){
     if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){
