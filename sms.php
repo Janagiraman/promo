@@ -2,6 +2,9 @@
 if (!isset($_SESSION)) { session_start(); }
 include('connect.php');
 
+echo '<pre>';
+print_r($_POST);
+
 if(isset($_POST['submit']) && !empty($_POST['submit'])){
     if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){
       //your site secret key
