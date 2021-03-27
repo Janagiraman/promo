@@ -66,7 +66,13 @@ include('connect.php');
           die();
       }
     }
-  }
+    else{
+        //$errMsg = 'Robot verification failed, please try again.';
+        $_SESSION['captcha_error'] = 'captcha_validate';
+        header("Location: index.php");
+        die();
+    }
+  
 
 
 
