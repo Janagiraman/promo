@@ -76,13 +76,18 @@
                                 <div class="form-group">
 
                                     <div class="g-recaptcha" data-sitekey="6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
-                                    <input type="text" class="form-control d-none " data-recaptcha="true" name="re_captcha" id="re_captcha_remove"   data-error="Please complete the Captcha"> 
-                                   
+                                    <input type="text" class="form-control d-none " data-recaptcha="true" name="re_captcha" id="re_captcha_remove" value="false"   data-error="Please complete the Captcha"> 
+                                    <?php  if(isset($_SESSION['user']) == 'exist'){ ?>
+                                        <div class="alert alert-danger captcha_error" role="alert">
+                                            Invalid Captcha.
+                                        </div>
+                                    <?php } ?>
                                     <div class="help-block with-errors"></div>
                                 </div>
-                                <button type="submit" class="btn btn-success" name="send-sms" id="send-sms"> Send Message</button>
+                               
                         
                         </form>
+                        <button  class="btn btn-success" name="send-sms" id="send-sms"> Send Message</button>
                 <?php  }   if(isset($_SESSION['user']) == 'exist'){ 
                               unset($_SESSION['user']);
                     ?>
@@ -114,7 +119,17 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
    
   <script>
-        
+         $(document).ready(function(){
+            $(".captcha_error").text("")
+              $("#send-sms").click(function(){
+                  var captchaVal = $("#g-recaptcha-response").val();
+                  if(captchaVal == ''){
+                      $(".captcha_error").text("Please select captcha.")
+                  }else{
+                    $("#promo-form").submit();
+                  }
+              })
+         });
         function verifyRecaptchaCallback(){
                 grecaptcha.execute('6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu', {action:'validate_captcha'})
                         .then(function(token) {
