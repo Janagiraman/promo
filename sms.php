@@ -6,6 +6,10 @@ include('connect.php');
 // print_r($_POST);
 // exit; 
   
+  $captcha = VerifyRecaptcha($_POST['g-recaptcha-response']);
+  echo '<pre>';
+  print_r($captcha);
+  exit;
 
     if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){
       //your site secret key
@@ -18,7 +22,7 @@ include('connect.php');
      print_r($keyy);
       print_R($verifyResponse);
         $responseData = json_decode($verifyResponse);
-      
+       
       print_r($responseData);
       if($responseData->success){
           echo 'succes';exit;
@@ -74,6 +78,29 @@ include('connect.php');
           header("Location: index.php");
           die();
       }
+    }
+
+    function VerifyRecaptcha($g_recaptcha_response) {
+        $ch = curl_init();
+        $curlConfig = array(
+            CURLOPT_URL            => "https://www.google.com/recaptcha/api/siteverify",
+            CURLOPT_POST           => true,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POSTFIELDS     => array(
+                'secret' => '6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu',
+                'response' => $g_recaptcha_response,
+                'remoteip' => $_SERVER['REMOTE_ADDR']
+            )
+        );
+        curl_setopt_array($ch, $curlConfig);
+        if($result = curl_exec($ch)){
+            curl_close($ch);
+            $response = json_decode($result);
+            return $response->success;
+        }else{
+            var_dump(curl_error($ch)); // this for debug remove after you test it
+            return false;
+        }
     }
    
   
