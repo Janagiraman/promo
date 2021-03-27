@@ -8,14 +8,17 @@ if(isset($_POST['g-recaptcha-response']) !=''){
     $privatekey = "6LfCdIwaAAAAAFddNQMt-1CYcW9TYkjJHXP3QKpE";
     $response = file_get_contents($url."?secret=".$privatekey."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
     $data = json_decode($response);
-    echo '<pre>';
-    print_r($data);
-    exit;
+   
 
     if (isset($data->success) AND $data->success==true) {
                 // everything is ok!
+                echo '<pre>';
+                print_r($data);
+                exit;
     } else {
-                // spam
+        $_SESSION['captcha_error'] = 'captcha_validate';
+        header("Location: index.php");
+        die();
     }
 
 }
