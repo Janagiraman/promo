@@ -33,6 +33,9 @@
 .txt-danger{
     color:red;
 }
+.error-lbl{
+    color:red;
+}
 
 </style>
 </head>
@@ -58,7 +61,7 @@
                                         <div class="form-group">
                                             <label for="name">Name <span class="txt-danger">*</span></label>
                                             <input id="name" type="text" name="name" class="form-control" placeholder="Please enter your Name" required>
-                                            
+                                            <span class="error-lbl" id="name_error"></label>
                                         </div>
                                     </div>
                                 
@@ -68,7 +71,7 @@
                                         <div class="form-group">
                                             <label for="phone">Phone <span class="txt-danger">*</span></label>
                                             <input id="phone" type="number" name="phone" class="form-control" placeholder="Please enter your phone" required >
-                                        
+                                            <span class="error-lbl" id="mobile_error"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -77,6 +80,7 @@
 
                                     <div class="g-recaptcha" data-sitekey="6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
                                     <input type="text" class="form-control d-none " data-recaptcha="true" name="re_captcha" id="re_captcha_remove" value="false"   data-error="Please complete the Captcha"> 
+                                    <span class="error-lbl" id="captcha_error"></label>
                                     <?php  if(isset($_SESSION['user']) == 'exist'){ ?>
                                         <div class="alert alert-danger captcha_error" role="alert">
                                             Invalid Captcha.
@@ -117,19 +121,46 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js" integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg==" crossorigin="anonymous"></script>
   <script>
          $(document).ready(function(){
-            $(".captcha_error").text("")
-              $("#send-sms").click(function(){
-                  var captchaVal = $("#g-recaptcha-response").val();
-                  if(captchaVal == ''){
-                      $(".captcha_error").text("Please select captcha.")
-                  }else{
+              
+            $("#send-sms").click(function(){
+                $("#name_error").text('');
+                $("#mobile_error").text('');
+                $("#captcha_error").text('');
+                var isValid =   validateForm();
+                if(isValid){
                     $("#promo-form").submit();
-                  }
-              })
+                }
+            })
          });
+        
+        function validateForm(){
+
+                 var name = $("#name").val();
+                 var mobile = $("#phone").val();
+                 var captcha = $("#g-recaptcha-response").val();
+                 var validation = true;
+                 if(name == ''){
+                      $("#name_error").text('Please enter your Name');
+                      validation = false;
+                 }
+                 if(mobile == ''){
+                      $("#mobile_error").text('Please enter your Mobile');
+                      validation = false;
+                 }
+                 if(captcha == ''){
+                      $("#captcha_error").text('Please enter Captcha');
+                      validation = false;
+                     
+                 }
+                 if(validation == true){
+                     return true;
+                 }else{
+                     return false;
+                 }
+        }
         function verifyRecaptchaCallback(){
                 grecaptcha.execute('6LfCdIwaAAAAAG9XJrq4gQGTgeD2IT_b9zKSj-Eu', {action:'validate_captcha'})
                         .then(function(token) {
